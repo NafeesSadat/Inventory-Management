@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Inventory</h1>
+<form method="POST" class="form-inline mb-3">
+    <input type="text" class="form-control mr-2" name="search" placeholder="Search by name or SKU">
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<a href="{{ url_for('routes.add_inventory') }}" class="btn btn-primary mb-3">Add Inventory</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>SKU</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Quantity</th>
+            <th>Supplier</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.sku }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.location }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.supplier }}</td>
+            <td>
+                <a href="{{ url_for('routes.update_inventory', id=item.id) }}" class="btn btn-warning btn-sm">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

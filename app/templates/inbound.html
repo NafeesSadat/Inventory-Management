@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Inbound</h1>
+<a href="{{ url_for('routes.add_inbound') }}" class="btn btn-primary mb-3">Add Inbound</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reference</th>
+            <th>Date Received</th>
+            <th>Product SKU</th>
+            <th>Quantity</th>
+            <th>Location</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.reference }}</td>
+            <td>{{ item.date_received }}</td>
+            <td>{{ item.product_sku }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.location }}</td>
+            <td>{{ item.remarks }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
