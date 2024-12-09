@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add Inbound</h1>
+<form method="POST">
+    <div class="form-group">
+        <label for="reference">Reference</label>
+        <input type="text" class="form-control" id="reference" name="reference" required>
+    </div>
+    <div class="form-group">
+        <label for="date_received">Date Received</label>
+        <input type="date" class="form-control" id="date_received" name="date_received" required>
+    </div>
+    <div class="form-group">
+        <label for="product_sku">Product SKU</label>
+        <input type="text" class="form-control" id="product_sku" name="product_sku" required>
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" required>
+    </div>
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" class="form-control" id="location" name="location" required>
+    </div>
+    <div class="form-group">
+        <label for="remarks">Remarks</label>
+        <input type="text" class="form-control" id="remarks" name="remarks">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

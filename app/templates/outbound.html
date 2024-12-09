@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Outbound</h1>
+<a href="{{ url_for('routes.add_outbound') }}" class="btn btn-primary mb-3">Add Outbound</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reference</th>
+            <th>Date Shipped</th>
+            <th>Product SKU</th>
+            <th>Quantity</th>
+            <th>Destination</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.reference }}</td>
+            <td>{{ item.date_shipped }}</td>
+            <td>{{ item.product_sku }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.destination }}</td>
+            <td>{{ item.remarks }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
